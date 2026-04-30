@@ -27,7 +27,6 @@ body {
     overflow: hidden;
 }
 
-/* soft Gotham glow background */
 body::before {
     content: "";
     position: absolute;
@@ -42,7 +41,6 @@ body::before {
     50% { opacity: 1; }
 }
 
-/* floating container */
 .container {
     display: flex;
     max-width: 1050px;
@@ -52,98 +50,58 @@ body::before {
     backdrop-filter: blur(12px);
     border-radius: 20px;
     border: 1px solid rgba(139, 0, 0, 0.2);
-    box-shadow:
-        0 10px 40px rgba(0, 0, 0, 0.7),
-        0 0 25px rgba(139, 0, 0, 0.08);
-    animation: float 6s ease-in-out infinite;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-6px); }
-}
-
-/* profile glow */
 .profile-photo {
-    flex: 0 0 200px;
+    flex: 0 0 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-right: 30px;
 }
 
 .profile-photo img {
-    width: 100%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
     border-radius: 50%;
     border: 2px solid rgba(139, 0, 0, 0.6);
-    box-shadow:
-        0 0 15px rgba(139, 0, 0, 0.3),
-        0 0 40px rgba(0, 0, 0, 0.8);
-    animation: glowPulse 4s infinite ease-in-out;
+    box-shadow: 0 0 25px rgba(139,0,0,0.4);
 }
 
-@keyframes glowPulse {
-    0%, 100% {
-        box-shadow: 0 0 15px rgba(139,0,0,0.25);
-    }
-    50% {
-        box-shadow: 0 0 25px rgba(139,0,0,0.5);
-    }
-}
-
-/* content */
 .content {
     flex: 1;
 }
 
-/* title glow */
 .header h1 {
     font-size: 2rem;
-    font-weight: 600;
-    color: #f5f5f5;
-    text-shadow: 0 0 8px rgba(139,0,0,0.3);
-    animation: textGlow 3s infinite ease-in-out;
-}
-
-@keyframes textGlow {
-    0%, 100% { text-shadow: 0 0 6px rgba(139,0,0,0.2); }
-    50% { text-shadow: 0 0 12px rgba(139,0,0,0.5); }
+    color: #fff;
 }
 
 .header p {
     color: #a0a0a0;
-    margin-bottom: 15px;
 }
 
-/* about panel */
 .about {
-    margin-bottom: 20px;
-    padding: 12px 15px;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.03);
-    border-left: 3px solid rgba(139,0,0,0.6);
-    box-shadow: 0 0 10px rgba(139,0,0,0.08);
+    margin: 15px 0;
+    padding: 12px;
+    border-left: 3px solid #8b0000;
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
 }
 
-/* messages */
 .messages {
     margin-bottom: 15px;
-    padding: 12px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255,255,255,0.07);
-    border-radius: 12px;
-    max-height: 200px;
+    max-height: 180px;
     overflow-y: auto;
 }
 
 .messages p {
     padding: 8px;
-    background: rgba(255,255,255,0.04);
+    margin-bottom: 5px;
     border-left: 3px solid #b30000;
-    margin-bottom: 6px;
-    transition: 0.3s;
-}
-
-.messages p:hover {
-    transform: translateX(3px);
-    box-shadow: 0 0 10px rgba(139,0,0,0.2);
+    background: rgba(255,255,255,0.04);
 }
 
 /* inputs */
@@ -154,15 +112,7 @@ input[type="text"] {
     background: rgba(0,0,0,0.5);
     border: 1px solid #222;
     color: #fff;
-    text-align: center;
     border-radius: 8px;
-    transition: 0.3s;
-}
-
-input[type="text"]:focus {
-    border-color: #b30000;
-    box-shadow: 0 0 12px rgba(179,0,0,0.4);
-    outline: none;
 }
 
 input[type="submit"] {
@@ -174,16 +124,37 @@ input[type="submit"] {
     color: #fff;
     border-radius: 8px;
     cursor: pointer;
-    transition: 0.3s;
 }
 
 input[type="submit"]:hover {
     background: #8b0000;
-    box-shadow: 0 0 18px rgba(139,0,0,0.5);
+}
+
+/* 🔥 SOCIAL LINKS */
+.links {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.links a {
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.links a:hover {
+    background: #8b0000;
+    box-shadow: 0 0 15px rgba(139,0,0,0.5);
     transform: translateY(-2px);
 }
 
-/* responsive */
 @media (max-width: 800px) {
     .container {
         flex-direction: column;
@@ -192,6 +163,10 @@ input[type="submit"]:hover {
 
     .profile-photo {
         margin: 0 auto 20px;
+    }
+
+    .links {
+        justify-content: center;
     }
 }
 </style>
@@ -202,21 +177,19 @@ input[type="submit"]:hover {
 <div class="container">
 
     <div class="profile-photo">
-        <img src="templates/1.jpg" alt="Pavan Kumar">
+        <img src="https://wallpapers.com/images/high/the-batman-2022-raining-art-ve1g1g7ulclgho9r.webp" alt="Pavan Photo">
     </div>
 
     <div class="content">
 
         <div class="header">
-            <h1>Pavan Kumar |  DevOps Enthusiast</h1>
+            <h1>Pavan Kumar | DevOps Enthusiast</h1>
             <p>Student | Aspiring Cloud & DevOps Engineer</p>
         </div>
 
         <div class="about">
             Hi, I'm <b>Pavan Kumar</b> 👋<br><br>
-            I have deployed a 2-tier Flask application (Flask + MySQL) on Microsoft Azure using Virtual Machines and Docker.  
-            I used Docker Compose to manage both containers with persistent volumes and a custom virtual network.  
-            The source code is hosted on GitHub, and Azure DevOps Pipelines is integrated to implement a CI/CD workflow for automated build, test, and deployment.
+            I have deployed a 2-tier Flask application (Flask + MySQL) on Microsoft Azure using Virtual Machines and Docker. I used Docker Compose to manage both containers with persistent volumes and a custom virtual network. The source code is hosted on GitHub, and Azure DevOps Pipelines is integrated to implement a CI/CD workflow for automated build, test, and deployment.
         </div>
 
         <div class="messages">
@@ -229,6 +202,13 @@ input[type="submit"]:hover {
             <input type="text" name="new_message" placeholder="Type your message...." required>
             <input type="submit" value="Deploy">
         </form>
+
+        <!-- 🔥 SOCIAL LINKS ADDED -->
+        <div class="links">
+            <a href="https://github.com/Pavan-Kumar-2095/" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/pavan-kumar-107655297/" target="_blank">LinkedIn</a>
+            <a href="https://leetcode.com/u/Pavan_Kumar-7070/" target="_blank">LeetCode</a>
+        </div>
 
     </div>
 
