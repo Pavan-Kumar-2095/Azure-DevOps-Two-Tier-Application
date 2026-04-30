@@ -124,7 +124,7 @@ sudo apt update
 sudo apt install fontconfig openjdk-21-jre -y
 java -version
 ```
-Install Jenkins (LTS Version)
+## Install Jenkins (LTS Version)
 ```bash
 sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
 https://pkg.jenkins.io/debian-stable/jenkins.io-2026.key
