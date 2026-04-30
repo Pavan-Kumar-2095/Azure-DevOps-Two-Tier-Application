@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Clone repo'){
             steps{
-                git branch: 'main', url: 'https://github.com/Pavan-Kumar-2095/Azure-DevOps-Two-Tier-App'
+                git branch: 'main', url: 'https://github.com/Pavan-Kumar-2095/Azure-DevOps-Two-Tier-Application'
             }
         }
         stage('Build image'){
