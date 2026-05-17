@@ -309,6 +309,6 @@ This project demonstrates a complete DevOps CI/CD pipeline implemented on Micros
 
 ---
 
-## 📈 LinkedIn 
-LinkedIn Profile : [LinkedIn](https://www.linkedin.com/in/pavan-kumar-107655297/)
+## 📈 LinkedIn Profile
+[LinkedIn](https://www.linkedin.com/in/pavan-kumar-107655297/)
 ---
